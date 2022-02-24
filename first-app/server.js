@@ -6,7 +6,7 @@ var util = require('./util');
 
 var server = http.createServer(function(req,res) {
     var qParam = url.parse(req.url, true).query;
-    
+    console.log("Hello...!");
     res.write(util.msg+" "+qParam.name+" "+qParam.city);
     res.end();
 });
