@@ -1,23 +1,17 @@
-module.exports.persons = [
-    {
-        "id":11,
-        "name":"Keyur",
-        "city":"surat",
-        "mobileNo":"7387029671",
-        "email":"keyurjava27@gmail.com"
-    },
-    {
-        "id":12,
-        "name":"Denish",
-        "city":"Mumbai",
-        "mobileNo":"7387029111",
-        "email":"denishjava27@gmail.com"
-    },
-    {
-        "id":13,
-        "name":"Vinit",
-        "city":"surat",
-        "mobileNo":"7387029888",
-        "email":"vinitjava27@gmail.com"
-    },
-];
+module.exports = (sequelize, Sequelize) => {
+    const Person = sequelize.define("person_details", {
+      name: {
+        type: Sequelize.STRING
+      },
+      city: {
+        type: Sequelize.STRING
+      },
+      mobileNo: {
+        type: Sequelize.STRING
+      },
+      email : {
+        type: Sequelize.STRING
+      }      
+    });
+    return Person;
+};
