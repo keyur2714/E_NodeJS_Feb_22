@@ -9,4 +9,6 @@ route.post('/person',controllerMethods.create);
 
 route.put('/person/:id',controllerMethods.update);
 
+route.delete('/person/:id',controllerMethods.delete);
+
 module.exports = route;
