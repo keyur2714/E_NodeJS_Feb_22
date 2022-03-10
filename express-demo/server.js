@@ -1,5 +1,6 @@
 var express=require('express');
 var app = express();
+const cors = require("cors");
 const db = require("./model");
 
 db.sequelize.sync();
@@ -9,7 +10,14 @@ db.sequelize.sync();
 
 var personRoutes = require('./routes/person.routes');
 
+var corsOptions = {
+    origin: "http://localhost:4200"
+};
+app.use(cors(corsOptions));
+// parse requests of content-type - application/json
 app.use(express.json());
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true }));
 
 app.get('/',function(req,res){
     console.log("Hello Radhe Krishna...!");

@@ -1,0 +1,33 @@
+<div class="card">    
+    <div class="card-header">
+        Manage Persons
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Person #</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Mobile No</th>
+                    <th>Email</th>
+                    <th>Created Date</th>
+                    <th>Updated Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let person of personList">
+                    <td>
+                        <a [routerLink]="['/person-detail',person.id]">{{person.id}}</a>
+                    </td>
+                    <td>{{person.name}}</td>
+                    <td>{{person.city}}</td>
+                    <td>{{person.mobileNo}}</td>
+                    <td>{{person.email}}</td>
+                    <td>{{person.createdAt | date : 'dd-MM-yyyy hh:mm'}}</td>
+                    <td>{{person.updatedAt | date : 'dd-MM-yyyy hh:mm'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
