@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Person } from '../person.model';
@@ -12,7 +13,7 @@ export class PersonDetailComponent implements OnInit {
 
   person : Person = new Person();
 
-  constructor(private activatedRoute : ActivatedRoute,private personService : PersonService) { }
+  constructor(private activatedRoute : ActivatedRoute,private personService : PersonService,private location : Location) { }
 
   ngOnInit(): void {
     let personId : number = this.activatedRoute.snapshot.params.id;
@@ -24,6 +25,10 @@ export class PersonDetailComponent implements OnInit {
         
       }
     )
+  }
+
+  back() : void {
+    this.location.back();
   }
 
 }

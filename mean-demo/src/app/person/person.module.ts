@@ -5,6 +5,7 @@ import { PersonDetailComponent } from "./person-detail/person-detail.component";
 import { PersonEntryComponent } from "./person-entry/person-entry.component";
 import { PersonListComponent } from "./person-list/person-list.component";
 import { PersonRoutesModule } from "./person-routes.module";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     declarations : [
@@ -15,6 +16,7 @@ import { PersonRoutesModule } from "./person-routes.module";
     imports :[
         CommonModule,
         HttpClientModule,
+        ReactiveFormsModule,
         PersonRoutesModule
     ]
 })

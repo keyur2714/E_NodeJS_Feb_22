@@ -20,4 +20,16 @@ export class PersonService {
   getPersonById(personId : number) : Observable<Person> {
     return this.httpClient.get<Person>(this.baseUrl+"/persons/"+personId);
   }
+
+  savePerson(person : Person) : Observable<Person>{
+    return this.httpClient.post<Person>(this.baseUrl+"/person",person);
+  }
+
+  updatePerson(person : Person,id : number) : Observable<any>{
+    return this.httpClient.put<any>(this.baseUrl+"/person/"+id,person);
+  }
+
+  deletePerson(id : number) : Observable<any> {
+    return this.httpClient.delete<any>(this.baseUrl+"/person/"+id);
+  }
 }

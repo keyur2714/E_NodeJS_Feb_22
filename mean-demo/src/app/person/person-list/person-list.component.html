@@ -1,3 +1,6 @@
+<div style="text-align: right;">
+    <button class="btn btn-info" routerLink="/person-entry">Add</button>
+</div>
 <div class="card">    
     <div class="card-header">
         Manage Persons
@@ -13,6 +16,7 @@
                     <th>Email</th>
                     <th>Created Date</th>
                     <th>Updated Date</th>
+                    <th>Action</th>                    
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +30,10 @@
                     <td>{{person.email}}</td>
                     <td>{{person.createdAt | date : 'dd-MM-yyyy hh:mm'}}</td>
                     <td>{{person.updatedAt | date : 'dd-MM-yyyy hh:mm'}}</td>
+                    <td>
+                        <button class="btn btn-success m-1" (click)="edit(person.id)">Edit</button>
+                        <button class="btn btn-danger m-1" (click)="delete(person.id)">Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { config } from 'process';
 import { Person } from '../person.model';
 
 import { PersonService } from '../person.service';
@@ -12,7 +14,7 @@ export class PersonListComponent implements OnInit {
 
   personList : Person[] = [];
 
-  constructor(private personService : PersonService) { }
+  constructor(private personService : PersonService,private router : Router) { }
 
   ngOnInit(): void {
     this.getAllPersons();
@@ -29,4 +31,22 @@ export class PersonListComponent implements OnInit {
     )
   }
 
+  edit(id : number) : void {
+    this.router.navigate(['/person-update',id]);
+  }
+
+  delete(id : number) : void {
+    let confirmMsg=confirm("Are you sure want to delete Person with id : "+id);
+      if(confirmMsg){
+        this.personService.deletePerson(id).subscribe(
+          (data)=>{
+            alert(data.message);
+            this.getAllPersons();
+          },
+          (error)=>{
+    
+          }
+        )
+      }
+    }    
 }
